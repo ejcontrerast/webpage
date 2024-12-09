@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary background colors */
+  --primary-color1: #00d4ff;
+  --primary-color2: #007acc;
+  --primary-color3: #002f66;
+  /* Secondary palette colors */
+  --secondary-color1: #392725;
+  --secondary-color2: #F99102;
+  --secondary-color3: #47B8C7;
+  --secondary-color4: #EBEAE5;
+  --secondary-color5: #DB4B08;
+}
+
+body {
+  background: radial-gradient(circle, var(--primary-color1), var(--primary-color2), var(--primary-color3));
+  background-size: 200% 100%;
+  animation: gradientAnimation 10s ease-in-out infinite;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+@keyframes gradientAnimation {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@font-face {
+  font-family: 'SayanSans';
+  src: url('./fonts/Saiyan-Sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SayanSansRight';
+  src: url('./fonts/Saiyan-Sans Right Oblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SayanSansLeft';
+  src: url('./fonts/Saiyan-Sans Left Oblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Common text and title styles */
+.text-primary {
+  color: var(--secondary-color1);
+}
+
+.title-primary {
+  color: var(--secondary-color2);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--secondary-color3);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color4);
+}
+
+.btn-primary:active {
+  background-color: var(--secondary-color5);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--secondary-color2);
+  color: #fff;
+}
