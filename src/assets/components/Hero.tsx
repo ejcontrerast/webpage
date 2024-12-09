@@ -6,22 +6,21 @@ const Hero = () => {
     <div className="flex flex-col items-center text-center py-20 m-auto text-yellow-300 font-normal">
      <div>
       <motion.h1
-        className="text-9xl font-extrabold"
+        className="text-9xl font-extrabold flex items-center justify-center [-webkit-text-stroke:0.5px_#002f66]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         Happy
-        <img src="static/images/Ball.png" alt="DragonBall ball"
-            className="w-14 h-14 relative top-2" 
-          />
-        <span className="text-red-500 text-[SayanSansRight]"
-        >
-        birthdY
-        </span>
+        <img 
+          src="static/images/Ball.png" 
+          alt="DragonBall ball"
+          className="w-16 h-16 -ml-10 mt-5" 
+        />
+        <span className="text-red-500 text-[SayanSansRight] [-webkit-text-stroke:0.5px_#002f66] -ml-5">birthdaY</span>
       </motion.h1>
       </div>
-      <p
+      <p className="text-4xl font-extrabold text-[#002f66] -mt-2"
         >Luis
         </p>
       <motion.img
