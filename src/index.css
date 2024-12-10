@@ -125,9 +125,7 @@ p {
   background: url("./static/images/DragonGlow.png");
   position: relative;
   background-size: cover;
-  background-position: center;
   background-attachment: fixed;
-  z-index: 1; /* Ensure text is above the gradient */
 }
 
 .wishes::before {
@@ -140,13 +138,19 @@ p {
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.3) 20%,
-    rgba(0, 0, 0, 0.3) 80%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0.4) 80%,
     rgba(0, 0, 0, 0.8) 100%
   );
   pointer-events: none;
-  z-index: 0; /* Ensure gradient is below the text */
+  z-index: 0; 
 }
+
+.content-wish {
+  position: relative;
+  z-index: 2;
+}
+
 
 .full-wh {
   position: absolute;
