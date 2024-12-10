@@ -17,26 +17,6 @@
  
 }
 
-@media (hover: hover) {
-  * {
-    cursor: pointer;
-  }
-  *:active {
-    cursor: pointer;
-  }
-}
-
-/* Add this class to elements that should play sound on interaction */
-.sound-effect {
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-/* Sound files */
-@keyframes playSound {
-  from { opacity: 1; }
-  to { opacity: 1; }
-}
-
 p {
   margin-bottom: 10px;
   margin-top: 5px;
@@ -111,11 +91,6 @@ p {
   background-color: var(--secondary-color5);
 }
 
-/* Selection color */
-::selection {
-  background-color: var(--secondary-color2);
-  color: #fff;
-}
 
 
 .custome-stroke {
@@ -138,6 +113,41 @@ p {
   -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 60%);
   mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
 }
+
+.wishes {
+  background: url("./static/images/DragonGlow.png");
+  position: relative;
+  background-size: cover;
+}
+
+.wishes::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.8) 0%,
+    rgba(0,0,0,0.3) 20%,
+    rgba(0,0,0,0.3) 80%,
+    rgba(0,0,0,0.8) 100%
+  );
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

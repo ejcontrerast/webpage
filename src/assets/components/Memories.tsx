@@ -11,7 +11,7 @@ const Memories = () => {
   };
 
   return (
-    <section id="memories" className="p-10">
+    <section id="memories" className="wishes ">
       <h2 className="text-3xl font-bold mb-4">Memories</h2>
       <Slider {...settings}>
         <div>

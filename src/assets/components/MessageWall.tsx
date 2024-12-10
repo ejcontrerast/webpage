@@ -12,8 +12,8 @@ const MessageWall = () => {
   };
 
   return (
-    <section id="messages" className="p-10">
-      <h2 className="text-3xl font-bold mb-4">Birthday Wishes</h2>
+    <section id="messages" className="p-10 select-auto wishes text-center h-3/5  ">
+      <h2 className="text-4xl font-bold mb-4 text-[--secondary-color1]">Birthday Wishes</h2>
       <input
         type="text"
         className="p-2 border rounded"
@@ -26,7 +26,7 @@ const MessageWall = () => {
       </button>
       <ul className="mt-4">
         {messages.map((msg, idx) => (
-          <li key={idx} className="mt-2 bg-gray-800 p-2 rounded">{msg}</li>
+          <li key={idx} className="mt-2 bg-transparent text-[--secondary-color1] p-2 rounded">{msg}</li>
         ))}
       </ul>
     </section>
