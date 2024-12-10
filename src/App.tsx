@@ -5,6 +5,7 @@ import About from "./assets/components/About";
 import Memories from "./assets/components/Memories";
 import MessageWall from "./assets/components/MessageWall";
 import GameQuiz from "./assets/components/GameQuiz";
+import MasonryGrid from "./assets/components/MasonryGrid";
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
         <Header />
         <Hero />
         <About />
-        
+        <MasonryGrid />
         <GameQuiz />
         <MessageWall />
       </div>
