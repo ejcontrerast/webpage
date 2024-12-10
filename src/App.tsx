@@ -19,8 +19,9 @@ const App = () => {
         <Header />
         <Hero />
         <About />
-        <MessageWall />
+        
         <GameQuiz />
+        <MessageWall />
       </div>
     </>
   );

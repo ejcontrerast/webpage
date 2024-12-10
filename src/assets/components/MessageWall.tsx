@@ -12,11 +12,11 @@ const MessageWall = () => {
   };
 
   return (
-    <section id="messages" className="p-10 select-auto wishes text-center h-3/5  ">
-      <h2 className="text-4xl font-bold mb-4 text-[--secondary-color1]">Birthday Wishes</h2>
+    <section id="messages" className="p-10 select-auto wishes text-center h-3/5 ">
+      <h2 className="text-7xl font-bold mb-4 text-[--secondary-color1]">Birthday Wishes</h2>
       <input
         type="text"
-        className="p-2 border rounded"
+        className="p-2 border rounded font-[HappyMonkey] [-webkit-text-stroke:0px_#47492e]"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Write a message..."

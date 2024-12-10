@@ -15,44 +15,64 @@ interface Result {
 const questions: Question[] = [
   {
     id: 1,
-    text: "What's your approach to fighting?",
-    options: ["Strategic and calculated", "All-out power", "Playful and creative", "Honorable and proud"],
+    text: "How do you approach challenges?",
+    options: [
+      "With ruthless determination and overwhelming power",
+      "Strategically, analyzing my opponent's weaknesses",
+      "With pride, pushing myself to surpass my limits",
+      "By adapting and finding balance between power and humility",
+    ],
   },
   {
     id: 2,
-    text: "How do you feel about Earth?",
-    options: ["It's my home to protect", "It's a good training ground", "It's full of interesting technology", "It's beneath me"],
+    text: "What's your view of Earth?",
+    options: [
+      "A planet to conquer",
+      "A place with strong warriors worth respecting",
+      "A home I've come to protect and cherish",
+      "A world that reminds me of my personal growth",
+    ],
   },
   {
     id: 3,
-    text: "What's your biggest motivation?",
-    options: ["Protecting my loved ones", "Becoming the strongest", "Having fun and eating", "Proving my worth"],
+    text: "What drives you the most?",
+    options: [
+      "Proving my superiority as a Saiyan prince",
+      "Avenging my pride and achieving personal strength",
+      "Protecting those I love, even if it means sacrificing myself",
+      "Balancing my Saiyan instincts with my role as a family man",
+    ],
   },
   {
     id: 4,
-    text: "How do you handle defeat?",
-    options: ["Learn from it and grow stronger", "Get angry and train harder", "Laugh it off and try again", "Refuse to accept it"],
+    text: "How do you respond to defeat?",
+    options: [
+      "I refuse to accept it and push back harder",
+      "I use it as motivation to train and become stronger",
+      "I reflect on my failures to grow into a better warrior",
+      "I accept it with grace and focus on improving for the future",
+    ],
   },
-]
+];
 
 const results: Result[] = [
   {
-    character: "Goku",
-    description: "You're pure-hearted and always looking for the next challenge. Your love for fighting is matched only by your love for food and friends.",
+    character: "Saiyan Saga Vegeta",
+    description: "You embody the pride and ruthlessness of a true Saiyan prince, driven by your desire for conquest and strength. Your determination knows no bounds, but it can sometimes cloud your judgment.",
   },
   {
-    character: "Vegeta",
-    description: "Proud and determined, you never back down from a challenge. Your drive to be the best pushes you to new heights.",
+    character: "Namek Saga Vegeta",
+    description: "Cunning and strategic, you are always looking for ways to outmaneuver your opponents. Your pride as a Saiyan prince drives you, but deep down, you're learning the value of alliances.",
   },
   {
-    character: "Gohan",
-    description: "You have hidden potential and a strong sense of justice. While you may not always seek out fights, you'll do whatever it takes to protect those you care about.",
+    character: "Majin Vegeta",
+    description: "Torn between your Saiyan instincts and your heart, you seek power at any cost to prove your worth. Yet, your inner struggle reveals a deep love for those close to you.",
   },
   {
-    character: "Trunks",
-    description: "You're a mix of determination and innovation. Your strategic mind and willingness to change the future set you apart.",
+    character: "Super Vegeta (Post-Buu Saga)",
+    description: "You've found balance between your Saiyan pride and your responsibilities. While you continue to strive for strength, your love for your family and Earth defines your purpose.",
   },
-]
+];
 
 const GameQuiz: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -86,9 +106,9 @@ const GameQuiz: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-2xl mx-auto my-8 p-6 bg-blue-100 rounded-lg shadow-lg"
+      className="select-auto max-w-2xl mx-auto my-20 p-6 bg-[--primary-color3] text-[--secondary-color3] font-[HappyMonkey] [-webkit-text-stroke:0px_#47492e] rounded-lg shadow-lg z-50"
     >
-      <h2 className="text-3xl font-bold mb-6 text-blue-800 text-center">Which Saiyan Are You?</h2>
+      <h2 className="select-auto text-5xl font-bold mb-6 font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1] text-center">Which Saiyan Are You?</h2>
       {showResult ? (
         <motion.div
           initial={{ scale: 0.8 }}
@@ -113,7 +133,7 @@ const GameQuiz: React.FC = () => {
             <p className="text-xl font-semibold mb-2">
               Question {currentQuestion + 1}/{questions.length}
             </p>
-            <p className="text-lg">{questions[currentQuestion].text}</p>
+            <p className="text-3xl">{questions[currentQuestion].text}</p>
           </div>
           <div className="space-y-2">
             {questions[currentQuestion].options.map((option, index) => (
@@ -122,7 +142,7 @@ const GameQuiz: React.FC = () => {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => handleAnswerClick(index)}
-                className="w-full text-left p-3 bg-white hover:bg-blue-200 rounded-md transition-colors duration-200"
+                className="select-auto cursor-pointer w-full text-left p-3 bg-[--secondary-color5] text-[--secondary-color4] hover:bg-blue-200 rounded-md transition-colors duration-200"
               >
                 {option}
               </motion.button>
