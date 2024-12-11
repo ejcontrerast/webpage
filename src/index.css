@@ -40,35 +40,35 @@ p {
 
 @font-face {
   font-family: "HappyMonkey";
-  src: url("./static/fonts/HappyMonkey-Regular.ttf") format("truetype");
+  src: url("/static/fonts/HappyMonkey-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Mogra";
-  src: url("./static/fonts/Mogra-Regular.ttf") format("truetype");
+  src: url("/static/fonts/Mogra-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SayanSans";
-  src: url("./static/fonts/Saiyan-Sans.ttf") format("truetype");
+  src: url("/static/fonts/Saiyan-Sans.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SayanSansRight";
-  src: url("./static/fonts/Saiyan-Sans Right Oblique.ttf") format("truetype");
+  src: url("/static/fonts/Saiyan-Sans Right Oblique.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SayanSansLeft";
-  src: url("./static/fonts/Saiyan-Sans Left Oblique.ttf") format("truetype");
+  src: url("/static/fonts/Saiyan-Sans Left Oblique.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
