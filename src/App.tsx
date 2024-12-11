@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "./assets/components/Header";
 import Hero from "./assets/components/Hero";
 import About from "./assets/components/About";

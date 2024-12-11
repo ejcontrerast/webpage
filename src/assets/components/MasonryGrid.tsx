@@ -32,7 +32,7 @@ const MediaItem: React.FC<{
   src: string;
   alt: string;
   onImageClick: (src: string, alt: string) => void;
-}> = ({ type, src, alt, onImageClick }) => {
+}> = ({ src, alt, onImageClick }) => {
 return <img
         className="h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 z-[0]"
         src={src}

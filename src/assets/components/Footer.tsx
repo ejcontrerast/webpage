@@ -1,4 +1,3 @@
-import React from "react";
 import HoverImage from "./HoverImage";
 
 const Footer = () => {
