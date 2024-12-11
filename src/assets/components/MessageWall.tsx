@@ -1,39 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { collection, addDoc, getDocs, serverTimestamp, updateDoc, doc } from 'firebase/firestore';
+import { db } from './../firebase'; // 🔥 Import Firestore
+import CommentBox from './CommentBox';
+import CommentList from './CommentList';
+import { Comment } from '../types/comment';
 
-const MessageWall = () => {
-  const [messages, setMessages] = useState<string[]>([]);
-  const [input, setInput] = useState("");
+const App: React.FC = () => {
+  const [comments, setComments] = useState<Comment[]>([]);
 
-  const addMessage = () => {
-    if (input) {
-      setMessages([...messages, input]);
-      setInput("");
+  // 🟢 Load comments from Firestore when the component mounts
+  useEffect(() => {
+    const loadComments = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'comments'));
+        const commentsData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })) as Comment[];
+        setComments(commentsData);
+      } catch (error) {
+        console.error('Error loading comments:', error);
+      }
+    };
+
+    loadComments();
+  }, []);
+
+  const handleAddComment = async (message: string, username: string) => {
+    const newComment: Comment = {
+      id: '',
+      username,
+      message,
+      timestamp: new Date().toISOString(),
+      replies: [],
+    };
+
+    try {
+      // 🟢 Add new comment to Firestore
+      const docRef = await addDoc(collection(db, 'comments'), {
+        ...newComment,
+        timestamp: serverTimestamp(), // Firestore handles the timestamp
+      });
+
+      newComment.id = docRef.id;
+      setComments((prev) => [newComment, ...prev]);
+    } catch (error) {
+      console.error('Error posting comment:', error);
+    }
+  };
+
+  const handleReply = async (message: string, parentId: string) => {
+    const newReply: Comment = {
+      id: '',
+      username: 'Anonymous', // Set a user for replies (this can be dynamic)
+      message,
+      timestamp: new Date().toISOString(),
+    };
+
+    try {
+      // 🟢 Add reply as a subcollection to Firestore
+      const parentDocRef = doc(db, 'comments', parentId);
+      await updateDoc(parentDocRef, {
+        replies: [...comments.find((c) => c.id === parentId)?.replies || [], newReply],
+      });
+
+      // Update the local state to reflect the new reply
+      setComments((prev) =>
+        prev.map((comment) =>
+          comment.id === parentId
+            ? { ...comment, replies: [...(comment.replies || []), newReply] }
+            : comment
+        )
+      );
+    } catch (error) {
+      console.error('Error posting reply:', error);
     }
   };
 
   return (
-    <section id="messages" className="p-10 select-auto wishes text-center h-3/5 ">
-      <div className="content-wish">
-        <h2 className="text-7xl font-bold mb-4 text-[--secondary-color1]">Birthday Wishes</h2>
-        <input
-          type="text"
-          className="p-2 border rounded font-[HappyMonkey] [-webkit-text-stroke:0px_#47492e]"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Write a message..."
-        />
-        <button className="ml-2 px-4 py-2 bg-blue-600 text-white" onClick={addMessage}>
-          Add
-        </button>
-        <ul className="mt-4">
-          {messages.map((msg, idx) => (
-            <li key={idx} className="mt-2 bg-transparent text-[--secondary-color1] p-2 rounded">{msg}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    <div className="flex flex-col justify-center items-center max-w-full mx-auto p-4">
+      <h1 className="text-6xl font-[SayanSans] text-[--secondary-color1] font-bold text-center mb-6 z-0">Shenron Wishes</h1>
+      <CommentBox onAddComment={handleAddComment} />
+      <CommentList comments={comments} onReply={handleReply} />
+    </div>
   );
 };
 
-export default MessageWall;
-
+export default App;

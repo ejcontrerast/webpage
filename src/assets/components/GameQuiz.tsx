@@ -107,7 +107,7 @@ const GameQuiz: React.FC = () => {
   }
 
   return (
-    <div className='h-fit  flex justify-center items-center '>
+    <div id='game' className='h-fit  flex justify-center items-center '>
       <div className='flex justify-center items-center'>
         <img src="./static/images/BunnyBulma.png" alt="BunnyBulma looking at you" className="mx-auto"/>
       </div>
@@ -115,15 +115,15 @@ const GameQuiz: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="select-auto min-h-[600px] max-w-2xl my-20 p-6 bg-[--primary-color3] text-[--secondary-color3] font-[HappyMonkey] [-webkit-text-stroke:0px_#47492e] rounded-lg shadow-lg relative z-10"
+        className="select-auto min-h-[600px] max-w-2xl my-20 p-6 bg-[--primary-color3] text-[--secondary-color3] font-[HappyMonkey] [-webkit-text-stroke:0px_#47492e] rounded-lg shadow-lg relative"
       >
-        <h2 className="select-auto text-5xl font-bold mb-6 font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1] text-center">Which Vegeta's Phase Are You?</h2>
+        <h2 className="select-auto text-5xl font-bold mb-6 font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1] text-center">Which Vegeta Are You?</h2>
         {showResult ? (
           <motion.div
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="text-center relative z-20"
+            className="text-center relative"
           >
             <h3 className="text-2xl font-bold mb-4">You are </h3>
             <h2 className="mb-4 text-4xl font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1]">{getResult().character}!</h2>
@@ -157,7 +157,7 @@ const GameQuiz: React.FC = () => {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => handleAnswerClick(index)}
-                  className="select-auto text-2xl cursor-pointer w-full text-left p-3 bg-[--secondary-color5] text-[--secondary-color4] hover:bg-[--secondary-color5] rounded-md transition-colors duration-200 relative z-20"
+                  className="select-auto text-2xl cursor-pointer w-full text-left p-3 bg-[--secondary-color5] text-[--secondary-color4] hover:bg-[--secondary-color5] rounded-md transition-colors duration-200 relative z-[0]"
                 >
                   {option}
                 </motion.button>
