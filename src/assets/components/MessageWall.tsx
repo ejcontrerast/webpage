@@ -52,7 +52,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center max-w-full mx-auto p-4 ">
+    <div id='messages' className="flex flex-col justify-center items-center max-w-full mx-auto p-4 ">
       <h1 className="text-6xl font-[SayanSans] text-[--secondary-color1] font-bold text-center mb-6 z-0">Shenron Wishes</h1>
       <CommentBox onAddComment={handleAddComment} />
       <CommentList comments={comments} onReply={handleReply} />

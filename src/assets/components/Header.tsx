@@ -11,8 +11,8 @@ const Header = () => {
           
           <div className="text-xl md:text-2xl lg:text-4xl text-yellow-400 flex flex-wrap">
             <a href="#memories" className="hover:underline mr-2 md:mr-4 [-webkit-text-stroke:0.5px_#47492e]">Memories</a>
-            <a href="#messages" className="hover:underline mr-2 md:mr-4 [-webkit-text-stroke:0.5px_#47492e]">Messages</a>
             <a href="#game" className="hover:underline mr-4 md:mr-4 [-webkit-text-stroke:0.5px_#47492e]">Game</a>
+            <a href="#messages" className="hover:underline mr-2 md:mr-4 [-webkit-text-stroke:0.5px_#47492e]">Messages</a>
           </div>
         </div>
       </div>

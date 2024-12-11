@@ -107,7 +107,7 @@ const GameQuiz: React.FC = () => {
   }
 
   return (
-    <div id='game' className='h-fit flex flex-col md:flex-row items-center justify-center px-4 py-10'>
+    <div id='game' className=' h-fit flex flex-col md:flex-row items-center justify-center px-4 py-10'>
       <div className='flex justify-center mb-6'>
         <img 
           src="./static/images/BunnyBulma.png" 
