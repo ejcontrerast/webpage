@@ -1,7 +1,7 @@
 
 const Header = () => {
   return (
-    <nav className="w-full max-w-full">
+    <nav id="header" className="w-full max-w-full">
       <div className="w-full max-w-full p-2 md:p-4 flex items-center justify-center text-[#002f66] font-extrabold bg-black/15 backdrop-blur-md shadow-md fixed top-0 z-50">
         <div className="flex flex-row justify-between items-center w-full max-w-full md:w-4/5 lg:w-3/5">
           <div className="inline-flex gap-4 items-center">

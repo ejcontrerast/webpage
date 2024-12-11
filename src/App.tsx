@@ -5,6 +5,7 @@ import MessageWall from "./assets/components/MessageWall";
 import GameQuiz from "./assets/components/GameQuiz";
 import MasonryGrid from "./assets/components/MasonryGrid";
 import Footer from "./assets/components/Footer";
+import { PageTop } from "./assets/components/PageTop";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <div id="stars4"></div>
         </div>
         <Header />
+        <PageTop />
         <Hero />
         <About />
         <MasonryGrid />

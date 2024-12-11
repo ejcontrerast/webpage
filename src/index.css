@@ -40,38 +40,51 @@ p {
 
 @font-face {
   font-family: "HappyMonkey";
-  src: url("./fonts/HappyMonkey-Regular.ttf") format("truetype");
+  src: url("./static/fonts/HappyMonkey-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Mogra";
-  src: url("./fonts/Mogra-Regular.ttf") format("truetype");
+  src: url("./static/fonts/Mogra-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SayanSans";
-  src: url("./fonts/Saiyan-Sans.ttf") format("truetype");
+  src: url("./static/fonts/Saiyan-Sans.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SayanSansRight";
-  src: url("./fonts/Saiyan-Sans Right Oblique.ttf") format("truetype");
+  src: url("./static/fonts/Saiyan-Sans Right Oblique.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SayanSansLeft";
-  src: url("./fonts/Saiyan-Sans Left Oblique.ttf") format("truetype");
+  src: url("./static/fonts/Saiyan-Sans Left Oblique.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 /* Common text and title styles */
 .text-primary {
   color: var(--secondary-color1);
@@ -127,7 +140,6 @@ p {
   mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
 }
 
-
 .wishes {
   background: url("./static/images/DragonGlow.png");
   position: relative;
@@ -150,7 +162,7 @@ p {
     rgba(0, 0, 0, 0.8) 100%
   );
   pointer-events: none;
-  z-index: 0; 
+  z-index: 0;
 }
 
 .content-wish {
@@ -175,7 +187,6 @@ p {
 .modal-content {
   z-index: 1001;
 }
-
 
 .full-wh {
   position: absolute;
