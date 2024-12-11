@@ -58,11 +58,11 @@ const MasonryGrid: React.FC = () => {
 
   return (
     <div id="memories" className="py-20 w-full flex items-center justify-center z-[0]">
-      <div className="w-4/5 flex flex-col items-center justify-center">
-        <h1 className="text-6xl font-bold mb-6 font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1] text-center">
+      <div className="w-full max-w-6xl flex flex-col items-center justify-center px-4">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1] text-center">
           Memories
         </h1>
-        <div className="flex flex-row justify-center items-center w-full gap-6 [&>img:not(:first-child)]:mt-8">
+        <div className="flex flex-col-reverse md:flex-row justify-center items-center w-full gap-6">
           <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-4">
             {mediaItems.map((group, index) => (
               <div key={index} className="grid gap-3">
@@ -73,40 +73,47 @@ const MasonryGrid: React.FC = () => {
                     src={item.src}
                     alt={item.alt}
                     onImageClick={openModal}
-
                   />
                 ))}
               </div>
             ))}
           </div>
-          <div className="flex-shrink-0 w-1/4">
-            <img className="h-auto w-full rounded-lg" src="/static/images/Family.png" alt="superFamily" />
+          <div className="w-full md:w-1/4">
+            <img
+              className="h-auto w-full rounded-lg"
+              src="/static/images/Family.png"
+              alt="superFamily"
+            />
           </div>
         </div>
       </div>
 
       {/* Modal for displaying the image */}
       {selectedImage && (
-       <Modal
-       isOpen={isOpen}
-       onRequestClose={closeModal}
-       ariaHideApp={false}
-       overlayClassName="fixed inset-0 bg-black bg-opacity-75 z-[1000]"
-       className="fixed inset-0 flex items-center justify-center z-[1001]"
-     >
-       <div className="relative" onClick={(e) => e.stopPropagation()}>
-         <button
-           className="absolute top-2 right-2 text-white text-3xl"
-           onClick={closeModal}
-         >
-           &times;
-         </button>
-         <img src={selectedImage.src} alt={selectedImage.alt} className="max-w-full max-h-screen rounded-lg" />
-       </div>
-     </Modal>
-     
+        <Modal
+          isOpen={isOpen}
+          onRequestClose={closeModal}
+          ariaHideApp={false}
+          overlayClassName="fixed inset-0 bg-black bg-opacity-75 z-[1000]"
+          className="fixed inset-0 flex items-center justify-center z-[1001]"
+        >
+          <div className="relative" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="absolute top-2 right-2 text-white text-3xl"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="max-w-full max-h-screen rounded-lg"
+            />
+          </div>
+        </Modal>
       )}
     </div>
+
   );
 };
 

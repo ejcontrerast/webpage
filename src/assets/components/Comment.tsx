@@ -17,12 +17,12 @@ const Comment: React.FC<CommentProps> = ({ comment, onReply }) => {
   return (
     <div className="w-full p-4 border border-gray-200 rounded-md shadow-sm my-8 [-webkit-text-stroke:0px_#47492e] z-[110]">
       <h3 className="font-semibold text-[--secondary-color2] [-webkit-text-stroke:0.5px_#47492e] z-[1]">{comment.username}</h3>
-      <p className="font-[HappyMonkey] text-[--secondary-color1] font-bold z-[1]">{comment.message}</p>
-      <small className="text-[--primary-color1] font-[HappyMonkey]">{new Date(comment.timestamp).toLocaleString()}</small>
+      <p className="font-[HappyMonkey] text-[--secondary-color1] font-bold z-[1] text-xl md:text-2xl lg:text-3xl">{comment.message}</p>
+      <small className="text-[--primary-color1] font-[HappyMonkey] text-sm md:text-xl">{new Date(comment.timestamp).toLocaleString()}</small>
 
       <button
         onClick={handleReply}
-        className="mt-2 mb-5 ml-5 text-[--primary-color2] [-webkit-text-stroke:0.5px_#47492e] hover:underline z-[100] relative"
+        className="mt-2 mb-5 ml-5 text-xl md:text-2xl lg:text-4xl text-[--primary-color2] [-webkit-text-stroke:0.5px_#47492e] hover:underline z-[100] relative"
       >
         Reply
       </button>

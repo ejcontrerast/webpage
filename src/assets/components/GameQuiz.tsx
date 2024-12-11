@@ -107,32 +107,42 @@ const GameQuiz: React.FC = () => {
   }
 
   return (
-    <div id='game' className='h-fit  flex justify-center items-center '>
-      <div className='flex justify-center items-center'>
-        <img src="./static/images/BunnyBulma.png" alt="BunnyBulma looking at you" className="mx-auto"/>
+    <div id='game' className='h-fit flex flex-col md:flex-row items-center justify-center px-4 py-10'>
+      <div className='flex justify-center mb-6'>
+        <img 
+          src="./static/images/BunnyBulma.png" 
+          alt="BunnyBulma looking at you" 
+          className="h-auto w-3/4 max-w-xs mx-auto"
+        />
       </div>
+      
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="select-auto min-h-[600px] max-w-2xl my-20 p-6 bg-[--primary-color3] text-[--secondary-color3] font-[HappyMonkey] [-webkit-text-stroke:0px_#47492e] rounded-lg shadow-lg relative"
+        className="w-full max-w-lg p-4 bg-[--primary-color3] text-[--secondary-color3] font-[HappyMonkey] rounded-lg shadow-lg relative"
       >
-        <h2 className="select-auto text-5xl font-bold mb-6 font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1] text-center">Which Vegeta Are You?</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1] text-center">
+          Which Vegeta Are You?
+        </h2>
+
         {showResult ? (
           <motion.div
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="text-center relative"
+            className="text-center"
           >
-            <h3 className="text-2xl font-bold mb-4">You are </h3>
-            <h2 className="mb-4 text-4xl font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1]">{getResult().character}!</h2>
+            <h3 className="text-xl md:text-2xl font-bold mb-4">You are</h3>
+            <h2 className="mb-4 text-2xl md:text-4xl font-[SayanSans] [-webkit-text-stroke:0.5px_#47492e] text-[--secondary-color1]">
+              {getResult().character}!
+            </h2>
             <img
               src={getResult().image}
               alt={getResult().character}
-              className="mx-auto mb-4"
-              />
-            <p className="mb-6 text-3xl">{getResult().description}</p>
+              className="h-auto w-3/4 max-w-xs mx-auto mb-4"
+            />
+            <p className="mb-6 text-lg md:text-3xl">{getResult().description}</p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -145,19 +155,19 @@ const GameQuiz: React.FC = () => {
         ) : (
           <>
             <div className="mb-4">
-              <p className="text-xl font-semibold mb-2">
+              <p className="text-lg md:text-xl font-semibold mb-2">
                 Question {currentQuestion + 1}/{questions.length}
               </p>
-              <p className="text-3xl">{questions[currentQuestion].text}</p>
+              <p className="text-2xl md:text-3xl">{questions[currentQuestion].text}</p>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-3">
               {questions[currentQuestion].options.map((option, index) => (
                 <motion.button
                   key={index}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => handleAnswerClick(index)}
-                  className="select-auto text-2xl cursor-pointer w-full text-left p-3 bg-[--secondary-color5] text-[--secondary-color4] hover:bg-[--secondary-color5] rounded-md transition-colors duration-200 relative z-[0]"
+                  className="text-lg md:text-2xl cursor-pointer w-full text-left p-3 bg-[--secondary-color5] text-[--secondary-color4] hover:bg-[--secondary-color5] rounded-md transition-colors duration-200"
                 >
                   {option}
                 </motion.button>
@@ -166,7 +176,8 @@ const GameQuiz: React.FC = () => {
           </>
         )}
       </motion.div>
-  </div>
+    </div>
+
   )
 }
 

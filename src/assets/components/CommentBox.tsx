@@ -17,24 +17,31 @@ const CommentBox: React.FC<CommentBoxProps> = ({ onAddComment }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col space-y-4 w-3/5">
+    <form onSubmit={handleSubmit} className="flex flex-col space-y-3 w-full md:w-3/5 px-4">
       <input
         type="text"
-        className="p-2 border border-gray-300 rounded-md z-[20] text-[--secondary-color5] font-[HappyMonkey] text-xl"
+        className="p-2 border border-gray-300 rounded-md z-[20] text-[--secondary-color5] font-[HappyMonkey] text-base md:text-xl"
         placeholder="Your Name"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
+      
       <textarea
-        className="p-2 border border-gray-300 rounded-md z-[20] text-[--secondary-color5] font-[HappyMonkey] text-xl"
+        className="p-2 border border-gray-300 rounded-md z-[20] text-[--secondary-color5] font-[HappyMonkey] text-base md:text-xl"
         placeholder="Add a comment..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        rows={4}
       />
-      <button type="submit" className="bg-[--primary-color2] text-[--secondary-color2] px-4 py-2 rounded-md hover:bg-[--primary-color3] z-20">
+      
+      <button
+        type="submit"
+        className="bg-[--primary-color2] text-[--secondary-color2] px-3 py-2 text-md md:text-base rounded-md hover:bg-[--primary-color3] z-20 transition-colors duration-200"
+      >
         Post Comment
       </button>
     </form>
+
   );
 };
 

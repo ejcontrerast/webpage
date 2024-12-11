@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden;
+}
+
 :root {
   /* Primary background colors */
   --primary-color1: #00d4ff;
@@ -104,22 +108,25 @@ p {
 .background-hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("./static/images/fondo.png");
-  background-position: center;
+  background-position: center bottom;
   background-attachment: fixed;
+  background-size: cover;
   height: 60vh;
-  background-size: 140%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
+
+  /* Mask improvements */
   -webkit-mask-image: radial-gradient(
     circle at center,
-    black 40%,
-    transparent 60%
+    black 30%,
+    transparent 70%
   );
-  mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
+  mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
 }
+
 
 .wishes {
   background: url("./static/images/DragonGlow.png");
