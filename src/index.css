@@ -141,7 +141,7 @@ p {
 }
 
 .wishes {
-  background: url("./static/images/DragonGlow.png");
+  background: url("/static/images/DragonGlow.png");
   position: relative;
   background-size: cover;
   background-attachment: fixed;
