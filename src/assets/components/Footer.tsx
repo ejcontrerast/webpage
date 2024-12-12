@@ -9,7 +9,7 @@ const Footer = () => {
         <div>
           <p >Made with ❤️</p> 
           <p > by Karen and Ernesto for</p>
-          <p className="font-[HappyMonkey] text-sm"> (click on the image 🎁)</p>
+          <p className="font-[HappyMonkey] text-sm"> (click on Luis 🎁)</p>
         </div>
         <HoverImage src="static/memories/sticker.png" alt="Luis upsidedown" soundSrc="static/sounds/raqueltrap.mp3"/>
       </div>

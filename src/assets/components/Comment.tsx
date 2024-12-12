@@ -22,13 +22,13 @@ const Comment: React.FC<CommentProps> = ({ comment, onReply }) => {
 
       <button
         onClick={handleReply}
-        className="mt-2 mb-5 ml-5 text-xl md:text-2xl lg:text-4xl text-[--primary-color2] [-webkit-text-stroke:0.5px_#47492e] hover:underline z-[100] relative"
+        className="mt-2 mb-5 ml-5 text-xl md:text-2xl lg:text-4xl text-[--primary-color2] [-webkit-text-stroke:0.5px_#47492e] hover:underline z-[1] relative"
       >
         Reply
       </button>
 
       {comment.replies && comment.replies.length > 0 && (
-        <div className="pl-6 m-4 border-l-2 border-gray-200">
+        <div className="pl-6 m-4 border-l-2 border-gray-200 z-[1]">
           {comment.replies.map((reply) => (
             <Comment key={reply.id} comment={reply} onReply={onReply} />
           ))}

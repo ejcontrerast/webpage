@@ -43,6 +43,6 @@ const CommentBox: React.FC<CommentBoxProps> = ({ onAddComment }) => {
     </form>
 
   );
-};
+}; 
 
 export default CommentBox;
