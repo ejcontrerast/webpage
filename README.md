@@ -3,51 +3,6 @@
 ## Overview
 HPB Vegeta is a web application built with React, TypeScript, and Vite. It is designed to celebrate a special occasion, specifically a birthday, with interactive and engaging features. The application includes various components such as a quiz, a message wall, a masonry grid of images and videos, and more. The project leverages Tailwind CSS for styling and Supabase for backend services.
 
-## Project Structure
-The project is organized into several directories and files, each serving a specific purpose:
-
-your-project/ 
-├── .env 
-├── .gitignore 
-├── .vercel/ 
-├── backend/ 
-│ ├── comments.js 
-│ ├── comments.json 
-│ ├── package.json 
-│ └── server.js 
-├── public/ 
-│ ├── fonts/ 
-│ ├── images/ 
-│ ├── sounds/ 
-│ └── ... 
-├── src/ 
-│ ├── assets/ 
-│ │ ├── components/ 
-│ │ │ ├── CommentBox.tsx 
-│ │ │ ├── CommentList.tsx 
-│ │ │ ├── Footer.tsx 
-│ │ │ ├── GameQuiz.tsx 
-│ │ │ ├── Header.tsx 
-│ │ │ ├── Hero.tsx 
-│ │ │ ├── MasonryGrid.tsx 
-│ │ │ ├── MessageWall.tsx 
-│ │ │ └── ... 
-│ │ ├── config/ 
-│ │ │ └── supabaseClient.ts 
-│ │ ├── types/ 
-│ │ │ └── comment.ts 
-│ │ └── ... 
-│ ├── App.tsx 
-│ ├── index.css 
-│ ├── main.tsx 
-│ ├── vite-env.d.ts 
-│ └── ... 
-├── tailwind.config.js 
-├── tsconfig.json 
-└── vite.config.ts
-
-
-
 ## Key Components
 1. **Header**: Displays the navigation bar with links to different sections of the application.
 2. **Hero**: The main hero section with a welcoming message.
