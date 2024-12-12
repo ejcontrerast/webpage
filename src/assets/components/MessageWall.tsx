@@ -1,32 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import supabase from '../supabaseClient';
+import axios from 'axios';
 import CommentBox from './CommentBox';
 import CommentList from './CommentList';
 import { Comment } from '../types/comment';
 import { v4 as uuidv4 } from 'uuid';
 
+const API_URL = 'http://localhost:5000/comments';
+
 const MessageWall: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
 
-  // 🟢 Load comments from Supabase when the component mounts
+  // 🟢 Load comments from backend when the component mounts
   useEffect(() => {
-    const fetchComments = async () => {
-      const { data, error } = await supabase
-        .from('comments')
-        .select('*')
-        .order('timestamp', { ascending: false });
-
-      if (error) {
-        console.error('Error loading comments:', error);
-      } else {
-        setComments(data);
-      }
-    };
-
-    fetchComments();
+    axios.get(API_URL)
+      .then((response) => {
+        console.log('API Response:', response.data); // Log the response
+        setComments(response.data);
+      })
+      .catch((error) => console.error('Error loading comments:', error));
   }, []);
 
-  const handleAddComment = async (message: string, username: string) => {
+  const handleAddComment = (message: string, username: string) => {
     const newComment: Comment = {
       id: uuidv4(),
       username,
@@ -35,19 +29,13 @@ const MessageWall: React.FC = () => {
       replies: [],
     };
 
-    // 🟢 Send comment to Supabase
-    const { data, error } = await supabase
-      .from('comments')
-      .insert([newComment]);
-
-    if (error) {
-      console.error('Error posting comment:', error);
-    } else if (data) {
-      setComments((prev) => [data[0], ...prev]);
-    }
+    // 🟢 Send comment to the server
+    axios.post(API_URL, newComment)
+      .then((response) => setComments((prev) => [response.data, ...prev]))
+      .catch((error) => console.error('Error posting comment:', error));
   };
 
-  const handleReply = async (message: string, parentId: string) => {
+  const handleReply = (message: string, parentId: string) => {
     const newReply: Comment = {
       id: uuidv4(),
       username: 'Anonymous', // Use the current username or handle it as needed
@@ -55,22 +43,19 @@ const MessageWall: React.FC = () => {
       timestamp: new Date().toISOString(),
     };
 
-    const { error } = await supabase
-      .from('comments')
-      .update({ replies: `replies || ${JSON.stringify([newReply])}::jsonb` })
-      .eq('id', parentId);
+    setComments((prev) =>
+      prev.map((comment) =>
+        comment.id === parentId
+          ? { ...comment, replies: [...(comment.replies || []), newReply] }
+          : comment
+      )
+    );
 
-    if (error) {
-      console.error('Error posting reply:', error);
-    } else {
-      setComments((prev) =>
-        prev.map((comment) =>
-          comment.id === parentId
-            ? { ...comment, replies: [...(comment.replies || []), newReply] }
-            : comment
-        )
-      );
-    }
+    // 🟢 Send reply to the serve
+    axios.post(`${API_URL}/${parentId}/replies`, newReply)
+      .then((response) => console.log('Reply posted:', response.data))
+      .catch((error) => console.error('Error posting reply:', error));
+
   };
 
   return (
