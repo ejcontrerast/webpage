@@ -36,7 +36,7 @@ const CommentBox: React.FC<CommentBoxProps> = ({ onAddComment }) => {
       
       <button
         type="submit"
-        className="bg-[--primary-color2] text-[--secondary-color2] px-3 py-2 text-md md:text-xl rounded-md hover:bg-[--primary-color3] z-20 transition-colors duration-200"
+        className="bg-[--primary-color2] text-[--secondary-color2] px-3 py-2 text-md rounded-md hover:bg-[--primary-color3] z-20 transition-colors duration-200"
       >
         Post Comment
       </button>

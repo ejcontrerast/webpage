@@ -82,7 +82,7 @@ const MessageWall: React.FC = () => {
   };
 
   return (
-    <div id='messages' className="wishes flex flex-col justify-center items-center max-w-full mx-auto p-4">
+    <div id='messages' className="wishes flex w-full flex-col justify-center items-center mx-auto p-4">
       <h1 className="text-6xl font-[SayanSans] text-[--secondary-color1] font-bold text-center mb-6 z-0">
         Shenron Wishes
       </h1>
