@@ -4,9 +4,10 @@ interface HoverImageProps {
   src: string;
   alt: string;
   soundSrc: string;
+  className?: string;
 }
 
-const HoverImage: React.FC<HoverImageProps> = ({ src, alt, soundSrc }) => {
+const HoverImage: React.FC<HoverImageProps> = ({ src, alt, soundSrc, className }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleMouseEnter = () => {
@@ -21,7 +22,7 @@ const HoverImage: React.FC<HoverImageProps> = ({ src, alt, soundSrc }) => {
         src={src}
         alt={alt}
         onMouseEnter={handleMouseEnter}
-        className="cursor-pointer hover:opacity-80 transition-opacity duration-200 ml-10 h-28 z-10 relative"
+        className={className ||  "cursor-pointer hover:opacity-80 transition-opacity duration-200 ml-10 h-28 z-10 relative"}
       />
       <audio ref={audioRef} src={soundSrc} />
     </div>
