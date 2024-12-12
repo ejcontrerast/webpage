@@ -32,25 +32,59 @@ To run the project locally, follow these steps:
 ## Conclusion
 This project is a comprehensive web application designed to celebrate a special occasion with interactive features and engaging content. It leverages modern web development technologies and best practices to provide a seamless user experience.
 
-## Footer Component
-The footer component displays a special message and an interactive image. Here is the code for the `Footer.tsx` component:
+## Installation
 
-```tsx
-import HoverImage from "./HoverImage";
+1. **Clone the repository**
 
-const Footer = () => {
-  return (
-    <footer className="bg-[#1d1d1d] text-white text-center p-8 w-full z-10">
-      <div className='flex flex-row justify-center items-center text-xl md:text-3xl '>
-        <div>
-          <p>Made with ❤️</p> 
-          <p>by Karen and Ernesto for</p>
-          <p className="font-[HappyMonkey] text-sm">(Click on Luis 🥳)</p>
-        </div>
-        <HoverImage src="static/memories/sticker.png" alt="Luis upsidedown" soundSrc="static/sounds/raqueltrap.mp3"/>
-      </div>
-    </footer>
-  );
-};
+   ```sh
+   git clone https://github.com/ejcontrerast/myportfolio.git
 
-export default Footer;
+
+2. **Navigate to the project directory**
+
+cd myportfolio
+
+3. **Install dependencies**
+
+npm install
+
+## Usage
+1. Start the development server
+
+npm run dev
+
+2. Open the application
+
+Navigate to http://localhost:5173 in your browser to view the portfolio.
+
+## Deployment
+The project is deployed using GitHub Pages. To deploy your own version:
+
+1. Build the project
+
+npm run build
+
+2. **Deploy using GitHub Pages**
+
+npm run deploy
+
+Ensure the homepage field in package.json is set to https://<your-username>.github.io/<your-repo-name>/.
+
+## Contributing
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+
+2. Create a new branch
+
+git checkout -b feature/YourFeature
+
+3. Commit your changes
+
+git commit -m "Add your feature"
+
+4. Push to the branch
+
+git push origin feature/YourFeature
+
+5. Open a Pull Request
