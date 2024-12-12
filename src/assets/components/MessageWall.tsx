@@ -55,7 +55,7 @@ const MessageWall: React.FC = () => {
       timestamp: new Date().toISOString(),
     };
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('comments')
       .update({ replies: `replies || ${JSON.stringify([newReply])}::jsonb` })
       .eq('id', parentId);
